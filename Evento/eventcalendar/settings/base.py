@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "i8e1s3!_(fjsiv%1pn3sb3o=s)!p*nzwh1$gp5-l&%nb!d=y_s"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+#ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -74,18 +74,18 @@ WSGI_APPLICATION = "eventcalendar.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'DBProyecto9',
-        'USER': 'postgres',
-        'PASSWORD': 'a',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
+#
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME':'DBProyecto9',
+#        'USER': 'postgres',
+#        'PASSWORD': 'a',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
+#
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 

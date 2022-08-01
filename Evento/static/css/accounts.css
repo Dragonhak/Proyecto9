@@ -133,11 +133,11 @@ sup {
   top: -.5em; }
 
 a {
-  color: #007bff;
+  color: #004f94;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #0056b3;
+    color: #8f8f2d;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -8144,7 +8144,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #6807f9; }
+  color: #004f94; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
@@ -8197,7 +8197,6 @@ h1, h2, h3, h4, h5,
   position: relative;
   z-index: 0; }
   .text-wrap:after {
-    background: #6807f9;
     position: absolute;
     top: 0;
     left: 0;
@@ -8388,8 +8387,8 @@ textarea.form-control {
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #6807f9 !important;
-    border: 1px solid #6807f9 !important;
+    background: #024d92 !important;
+    border: 1px solid #024d92 !important;
     color: #fff !important;
     -webkit-box-shadow: 0px 10px 19px -16px rgba(0, 0, 0, 0.29) !important;
     -moz-box-shadow: 0px 10px 19px -16px rgba(0, 0, 0, 0.29) !important;

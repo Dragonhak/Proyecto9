@@ -22,3 +22,12 @@ def home(request, anio, mes):
         "numero_mes": numero_mes,
         "calendario": calendario,
         })
+
+def bienvenidos(request):
+    return render(request, "index.html")
+
+def conocenos(request):
+    return render(request, "conocenos.html")
+
+def contactanos(request):
+    return render(request, "contactanos.html")

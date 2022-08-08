@@ -32,7 +32,7 @@ class listaEventos(ListView):
 		context = super(listaEventos, self).get_context_data(**kwargs)
 		return context
 
-<<<<<<< Updated upstream
+"""
     return render(request, 'home.html', {
         "anio": anio,
         "mes": mes,
@@ -48,8 +48,8 @@ def conocenos(request):
 
 def contactanos(request):
     return render(request, "contactanos.html")
-=======
+
 	def get_queryset(self):
 		return Evento.objects.order_by("fecha")
         
->>>>>>> Stashed changes
+"""

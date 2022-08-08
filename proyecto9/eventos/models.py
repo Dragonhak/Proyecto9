@@ -1,4 +1,5 @@
-from django.db            import models
+from django.db            import models  
+from django.db.models     import constraints, UniqueConstraint
 from psycopg2             import Timestamp
 from usuarios.models      import Usuario
 from django.utils         import timezone
@@ -64,6 +65,16 @@ class EventoUsuario(models.Model):
     class Meta:
         db_table="EventoUsuario"
         ordering = ["evento", "usuario"] 
+        #Restricción que no permite que un mismo evento tenga 2 veces el mismo usuario
+        constraints = [
+            constraints.UniqueConstraint(
+                fields=['evento', 'usuario'], name="unique_evento_usuarios"
+             ),
+            models.CheckConstraint(
+                name="prevent_repeat",
+                check=~models.Q(evento=models.F("usuario")),
+            )
+        ]
 
     def __str__(self):
         return f"{self.evento} - {self.usuario}"

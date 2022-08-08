@@ -1,0 +1,87 @@
+
+{% extends "base/base_generic.html" %}
+
+{% block title %}<title>Home</title>{% endblock %}
+
+{% block content %}
+<main>
+  <div class="px-4 py-5 my-5 text-center">
+    {% load static %}
+    <img class="d-block mx-auto mb-4" src="{% static 'img/logo.jpg' %}" alt="" width="400" height="500">
+    <h1 class="display-5 fw-bold">Bienvenidos</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Somos Fundación Pueblo</p>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{% static 'img/mision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Misión</h1>
+        <p class="lead">Generar espacios que permitan a los ciudadanos desarrollar sus capacidades de
+          investigación, reflexión, formulación, ejecución y control de proyectos educativos,
+          culturales, deportivos, ambientales, productivos, económicos, fiscales, laborales y
+          comunitarios para el desarrollo local, la inclusión social y la igualdad de género en
+          vinculación con las Tecnologías de la Información y la Comunicación.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{% static 'img/vision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Visión</h1>
+        <p class="lead">Lograr la eliminación de la pobreza, el analfabetismo, el desempleo y la
+          contaminación ambiental para que exista una verdadera igualdad social, política y
+          económica en las comunidades.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{% static 'img/integrantes.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Información de integrantes</h1>
+        <p class="lead">◦ Presidente: Mariana Gómez</p>
+        <p class="lead">◦ Tesorero: Emmanuel Ojeda</p>
+        <p class="lead">◦ Secretaria: Ethel Gómez</p>   
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{% static 'img/contacto.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Información de contacto</h1>
+        <p class="lead">Lugar: Av. España 395. Barranqueras . Chaco.</p>
+        <p class="lead">Email: fundacionpueblochaco@gmail.com</p>
+        <p class="lead">Facebook : @fundacion.pueblo</p>   
+        <p class="lead">Instagram: @fundacion.pueblo</p>  
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="b-example-divider mb-0"></div>
+</main>
+{% endblock %}

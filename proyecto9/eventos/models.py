@@ -1,7 +1,12 @@
 from django.db            import models
+from psycopg2             import Timestamp
 from usuarios.models      import Usuario
+from django.utils         import timezone
+from django.urls          import reverse
 
-class Usuario(models.Model):
+from django.contrib import admin
+
+class Evento(models.Model):
 
     CATEGORIA_CHOICES = (
     ('Educativo', 'Educativo'),
@@ -18,18 +23,49 @@ class Usuario(models.Model):
     ('Presencial', 'Presencial'),
     )
 
+    GRATUITO_CHOICES = (
+    ('SI', 'SI'),
+    ('NO', 'NO'),
+    )
+
     titulo = models.CharField(max_length=100)
     desc = models.CharField(max_length=250)
     lugar = models.CharField(max_length=100)
-    fecha = models.DateTimeField()
+    fecha = models.DateTimeField(default=timezone.now)
     categoria = models.CharField(max_length=20, choices = CATEGORIA_CHOICES)
     modalidad = models.CharField(max_length=20, choices = MODALIDAD_CHOICES)
-    gratuito = models.BooleanField(null = False)
-    participantes = models.ManyToManyField(Usuario)
+    gratuito = models.CharField(max_length=2, choices = GRATUITO_CHOICES, default='SI')
+    participantes = models.ManyToManyField(Usuario, through='EventoUsuario')
 
     class Meta:
         db_table="eventos"
+        ordering = ["-fecha", "titulo", "categoria"] 
 
     def __str__(self):
-        return f"{self.titulo} {self.desc} {self.lugar} {self.fecha} {self.categoria} {self.modalidad} {self.gratuito}"
+        return f"{self.titulo} - {self.desc} - {self.lugar} - {self.fecha} - {self.categoria} - {self.modalidad} - {self.gratuito}"
 	
+    def get_absolute_url(self):
+        return reverse('event-detail', args=[str(self.id)])
+
+    """@admin.display: Redefine el nombre de la función cuando la muestro en la grilla"""
+    @admin.display(
+        description='Participantes',
+    )
+    def cantParticipantes(self):
+        return len(self.participantes.all())
+
+
+
+class EventoUsuario(models.Model):
+
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE, null=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        db_table="EventoUsuario"
+        ordering = ["evento", "usuario"] 
+
+    def __str__(self):
+        return f"{self.evento} - {self.usuario}"
+        
+	    

@@ -1,7 +1,7 @@
+from turtle import Turtle
 from django.shortcuts               import render
 from .models                        import Evento, EventoUsuario
-from django.views.generic           import ListView, CreateView, UpdateView, DeleteView
-
+from django.views.generic           import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 # Create your views here.
 """
@@ -23,22 +23,70 @@ def index(request):
     )
 """
 class listaEventos(ListView):
-	template_name = "eventos/listaEventos.html"
-	model = Evento
-	context_object_name = 'lista_eventos'
-	paginate_by = 12
+    model = Evento
+    context_object_name = 'lista_eventos'
+    template_name = "eventos/listaEventos.html"
+    paginate_by = 12
+       
+    #Redefino para pasar variables de contexto adicionales
+	#def get_context_data(self, **kwargs):
+        #Primero se trae el contexto actual
+		#context = super(listaEventos, self).get_context_data(**kwargs)
+        #Nuevo dato que quiero pasar..
+        #context['some_data'] = 'This is just some data'
+		#return context
+    
+    def get_queryset(self):
+        queryset = Evento.objects.order_by('fecha')
+        return queryset
 
-	def get_context_data(self, **kwargs):
-		context = super(listaEventos, self).get_context_data(**kwargs)
-		return context
+class detalleEventos(DetailView):
+    model = Evento
+    context_object_name = 'evento'
+    template_name = "eventos/detalleEventos.html"
+
+"""Por funcion
+def detalleEventos(request,pk):
+    try:
+        evento = Evento.objects.get(pk=pk)
+    except Evento.DoesNotExist:
+        raise Http404("Book does not exist")
+
+    #evento=get_object_or_404(Evento, pk=pk)
+
+    return render(
+        request,
+        'eventos/detalleEventos.html',
+        context={'evento':evento,}
+    )
+"""
+
+
+def isParticipante(request, eventoId, usuarioId):
+    try:
+        eu = EventoUsuario.objects.get(eventoId,usuarioId)
+        return True
+    except EventoUsuario.DoesNotExist:
+        return False
+    
+def participar(request, eventoId, usuarioId):
+    
+    EventoUsuario.objects.create(eventoId,usuarioId)
+
+    return render(
+        request,
+        'eventos/detalleEventos.html',
+        context={}
+    )
+
 
 """
-    return render(request, 'home.html', {
-        "anio": anio,
-        "mes": mes,
-        "numero_mes": numero_mes,
-        "calendario": calendario,
-        })
+return render(request, 'home.html', {
+    "anio": anio,
+    "mes": mes,
+    "numero_mes": numero_mes,
+    "calendario": calendario,
+})
 
 def bienvenidos(request):
     return render(request, "index.html")

@@ -8,11 +8,9 @@
         </svg>
 
         <p><strong>{{e.titulo}}</strong></p>
-        <!--<p>{{e.desc}}</p>-->
         <p><strong>Categoria: </strong>{{e.categoria}}</p>    
     
-        <p><a class="btn btn-secondary" href="">Ver Detalle</a></p>
-        <!-- % url 'eventos:admin_detalle_eventos' e.id % -->
+        <p><a class="btn btn-secondary" href="{% url 'detalleEventos' e.id %}">Ver Detalle</a></p>
     </center>        
     </div>   
 </div>

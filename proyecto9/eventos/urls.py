@@ -8,5 +8,6 @@ urlpatterns = [
     #path('conocenos', views.conocenos, name="conocenos"),
     #path('contactanos', views.contactanos, name="contactanos"),
     path('', views.listaEventos.as_view(), name='listaEventos'),
+    path('<int:pk>/', views.detalleEventos.as_view(), name='detalleEventos'),
 ]
 

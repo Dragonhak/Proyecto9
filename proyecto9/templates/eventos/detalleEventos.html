@@ -17,7 +17,6 @@
           <li><p><strong>Modalidad:   </strong>{{ evento.modalidad }}</p></li>
           <li><p><strong>Gratuito:   </strong>{{ evento.gratuito }}</p></li>
           <li><p><strong>Participantes:   </strong>{{ evento.cantParticipantes }}</p></li>
-
         </ul>
         <br>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
@@ -45,12 +44,15 @@
             </style>
             
             {% if user.is_authenticated %}
-                <!--pregunta si ya es participante y muestra uno u otro-->
-                <a class="w-100 btn btn-lg btn-outline-success" href="{% url 'listaEventos' %}">Participar</a>
-                <a class="w-100 btn btn-lg btn-outline-danger" href="{% url 'listaEventos' %}">Cancelar Participación</a>
+              <!--si el usuario ya esta participando llamo al cancelar -->
+              {% if isExisteEU %}
+                <a class="w-100 btn btn-lg btn-outline-danger" href="{% url 'cancelPartEU' evento.pk user.pk %}">Cancelar Participación</a>
+              {% else %}
+                <a class="w-100 btn btn-lg btn-outline-success" href="{% url 'participarEU' evento.pk user.pk %}">Participar</a>
+              {% endif %}                
             {% else %}    
                 <!--llama a loguearse -->
-                <a class="w-100 btn btn-lg btn-outline-success" href="{% url 'listaEventos' %}">Participar</a>
+                <a class="w-100 btn btn-lg btn-outline-success" href="{% url 'listaEventos' %}">ParticiparL</a>
             {% endif %}
             <a class="w-100 btn btn-lg btn-outline-primary" href="{% url 'listaEventos' %}">Volver</a>
         </div>

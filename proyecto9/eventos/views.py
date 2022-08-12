@@ -78,3 +78,41 @@ def cancelPartEU(request, eventId, userId):
 def participarEU(request, eventoId, usuarioId): 
     EventoUsuario.objects.create(evento_id = eventoId, usuario_id = usuarioId)
     return redirect('detalleEventos', eventoId = eventoId)
+
+def buscarEvento(request):
+    if request.method == "POST":
+        cat = request.POST['cat']
+        fch = request.POST['fch']
+        if cat == '' and fch == '':
+            return redirect('listaEventos')
+        else:
+            if cat == '':
+                lista_eventos = Evento.objects.filter(fecha__contains = fch)
+            elif fch == '':
+                lista_eventos = Evento.objects.filter(categoria__contains = cat)
+            else:
+                lista_eventos = Evento.objects.filter(categoria__contains = cat).filter(fecha__contains = fch)
+            return render(request,'eventos/listaEventos.html', 
+            {'cat':cat,
+            'fch':fch,
+            'lista_eventos':lista_eventos})
+    else:
+        return render(request,'eventos', 
+        {})
+"""
+def buscarEvento(request, cat, fch):
+    if cat == '' and fch == '':
+        return redirect('listaEventos')
+    else:
+        if cat == '':
+            lista_eventos = Evento.objects.filter(fecha__contains = fch)
+        elif fch == '':
+            lista_eventos = Evento.objects.filter(categoria__contains = cat)
+        else:
+            lista_eventos = Evento.objects.filter(categoria__contains = cat).filter(fecha__contains = fch)
+
+    return render(request,'eventos/listaEventos.html', 
+    {'cat':cat,
+    'fch':fch,
+    'lista_eventos':lista_eventos})
+"""

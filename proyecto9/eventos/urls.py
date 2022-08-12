@@ -7,6 +7,7 @@ urlpatterns = [
     path('<int:eventoId>/', views.detalleEventos, name='detalleEventos'),
     path('participar/<int:eventoId>/<int:usuarioId>', views.participarEU, name='participarEU'),
     path('cancelparticipar/<int:eventId>/<int:userId>', views.cancelPartEU, name='cancelPartEU'),
+    path('buscarEvento', views.buscarEvento, name='buscarEvento'),
     #
 ]
 

@@ -3,7 +3,29 @@
 {% block title %}<title>Calendario de Eventos</title>{% endblock %}
 {% block content %}
 
-  <div class="row">	
+<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method = POST action = "{% url 'buscarEvento' %}" role="search">
+    {% csrf_token %}
+    <label for="featured">Filtro: </label>
+    <select name="cat">
+        <option value=""selected>Todos</option>
+        <option value="Educativo">Educativo</option>
+        <option value="Cultural" >Cultural</option>
+        <option value="Deportivo">Deportivo</option>
+        <option value="Ambiental">Ambiental</option>
+        <option value="Productivo">Productivo</option>
+        <option value="Economico">Economico</option>
+        <option value="Comunitario">Comunitario</option>
+    </select>
+    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar Fecha..." aria-label="Search" name = "fch">
+    <!--input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar por Categoría o Fecha..." aria-label="Search" name = "buscado"-->        
+        <input type="submit" value="Filtrar" />   <!-- DELETE name="featured" FROM ORIGINAL CODE -->  
+    </form>
+    
+    
+</form>
+<br>
+<br>
+<div class="row">	
     <div class="blog-main">
         <div class="row mb-2">
             {% for e in lista_eventos %}

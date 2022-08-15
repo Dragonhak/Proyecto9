@@ -1,4 +1,3 @@
-
 {% extends "base/base_generic.html" %}
 
 {% block title %}<title>Inicio</title>{% endblock %}
@@ -11,16 +10,18 @@
     <h1 class="display-5 fw-bold">Bienvenidos</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Somos Fundación Pueblo</p>
-      <p class="lead"></p>Una entidad que fue creada en el año 2012 y que tiene como objetivo llevar adelante diferentes actividades para la comunidad de Barranqueras.</p>
+      <p class="lead mb-4"></p>Una entidad que fue creada en el año 2012 y que tiene como objetivo llevar adelante
+      diferentes actividades para la comunidad de Barranqueras.</p>
     </div>
   </div>
 
   <div class="b-example-divider"></div>
 
-  <div class="container col-xxl-8 px-4 py-5">
+  <div class=" col-xxl-12 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/mision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        <img src="{% static 'img/mision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
+          height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Misión</h1>
@@ -35,15 +36,16 @@
 
   <div class="b-example-divider"></div>
 
-  <div class="container col-xxl-8 px-4 py-5">
+  <div class=" col-xxl-12 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/vision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        <img src="{% static 'img/vision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
+          height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Visión</h1>
-        <p class="lead">Lograr la eliminación de la pobreza, el analfabetismo, el desempleo y la
-          contaminación ambiental para que exista una verdadera igualdad social, política y
+        <p class="lead">Lograr la eliminación de la pobreza, el analfabetismo, el desempleo y la contaminación ambiental
+          para que exista una verdadera igualdad social, política y
           económica en las comunidades.</p>
       </div>
     </div>
@@ -51,38 +53,54 @@
 
   <div class="b-example-divider"></div>
 
-  <div class="container col-xxl-8 px-4 py-5">
+  <div class=" col-xxl-12 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/integrantes.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        <img src="{% static 'img/integrantes.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+          width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Nuestros Representantes</h1>
         <p class="lead">◦ Presidente: Mariana Gómez</p>
         <p class="lead">◦ Tesorero: Emmanuel Ojeda</p>
-        <p class="lead">◦ Secretaria: Ethel Gómez</p>   
+        <p class="lead">◦ Secretaria: Ethel Gómez</p>
       </div>
     </div>
   </div>
 
   <div class="b-example-divider"></div>
 
-  <div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/contacto.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+  <div class=" col-xxl-12 px-4 pt-5">
+    <div class="row">
+      <div class="col xxl-3">
+        <div class="d-inline p-2">
+          <div class="d-inline">
+            <a class="lead sinsub"
+              href="https://www.google.com.ar/maps/place/Av.+Espa%C3%B1a+395,+H3503+Barranqueras,+Chaco/@-27.4860315,-58.9562206,17z/data=!3m1!4b1!4m5!3m4!1s0x944572cde861393d:0xcdda960dff8f3f4c!8m2!3d-27.4860363!4d-58.9540319?hl=en"
+              target="_blank">
+              <i class="bi bi-geo-alt" style="margin-left: -30px;"></i>
+              Av. España 395
+              <br>
+              <small class="ml-2 pl-2"> Barranqueras, Chaco</small> </a>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Información de contactos</h1>
-        
-        <p class="lead"><strong>Lugar: </strong><a href="https://www.google.com.ar/maps/place/Av.+Espa%C3%B1a+395,+H3503+Barranqueras,+Chaco/@-27.4860315,-58.9562206,17z/data=!3m1!4b1!4m5!3m4!1s0x944572cde861393d:0xcdda960dff8f3f4c!8m2!3d-27.4860363!4d-58.9540319?hl=en" target="_blank">Av. España 395. Barranqueras, Chaco</a></p>
-        <p class="lead"><strong>Email: </strong><a href="mailto:fundacionpueblochaco@gmail.com">fundacionpueblochaco@gmail.com</a></p>
-        <p class="lead"><strong>Facebook: </strong><a href="https://www.facebook.com/fundacion.pueblo/" target="_blank">@fundacion.pueblo</a></p>
-        <p class="lead"><strong>Instagram: </strong><a href="https://www.instagram.com/fundacion.pueblo/?hl=es-la/" target="_blank">@fundacion.pueblo</a></p>  
+
+      <div class="col xxl-3">
+        <div class="d-inline p-2"><a class="lead" href="mailto:fundacionpueblochaco@gmail.com"><i
+              class="bi bi-envelope-paper-fill"></i> E-mail </a></div>
+      </div>
+      <div class="col xxl-3">
+        <div class="d-inline p-2"><a class="lead" href="https://www.facebook.com/fundacion.pueblo/" target="_blank"><i
+              class="bi bi-facebook"></i> Facebook
+          </a></div>
+      </div>
+      <div class="col-auto xxl-3">
+        <div class="d-inline p-2 ml-auto"><a class="lead" href="https://www.instagram.com/fundacion.pueblo/?hl=es-la/"
+            target="_blank"><i class="bi bi-instagram"></i> Instagram </a></div>
       </div>
     </div>
   </div>
-  
 
   <div class="b-example-divider mb-0"></div>
 </main>

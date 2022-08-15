@@ -43,6 +43,10 @@
             </style>
             
             {% if user.is_authenticated %}
+              {% if user.is_superuser or user.is_staff %}
+                <a class="w-100 btn btn-lg btn-outline-dark" href="{% url 'modEvento' evento.pk %}">Editar Evento</a>
+                <a class="w-100 btn btn-lg btn-outline-danger" href="{% url 'borrarEvento' evento.pk %}">Borrar Evento</a>
+              {% endif %}
               <!--si el usuario ya esta participando llamo al cancelar -->
               {% if isExisteEU %}
                 <a class="w-100 btn btn-lg btn-outline-danger" href="{% url 'cancelPartEU' evento.pk user.pk %}">Cancelar Participación</a>
@@ -51,9 +55,11 @@
               {% endif %}                
             {% else %}    
                 <!--llama a loguearse -->
-                <a class="w-100 btn btn-lg btn-outline-success" href="{% url 'listaEventos' %}">ParticiparL</a>
+                <a class="w-100 btn btn-lg btn-outline-success" href="{% url 'login' %}">Participar</a>
             {% endif %}
             <a class="w-100 btn btn-lg btn-outline-primary" href="{% url 'listaEventos' %}">Volver</a>
+
+             
         </div>
       </div>
     </div>

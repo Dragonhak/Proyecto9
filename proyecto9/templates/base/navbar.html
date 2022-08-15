@@ -13,6 +13,11 @@
         <li class="nav-item">
         <a class="nav-link " href="{% url 'listaEventos' %}">Calendario de Eventos</a>
         </li>
+        {% if user.is_superuser %}
+        <li class="nav-item"></li>
+			<a class="nav-link" href="http://127.0.0.1:8000/admin/">ADMINISTRACION</a>
+        </li>
+		{% endif %}	
         <!--<li class="nav-item">
         <a class="nav-link disabled">Disabled</a>
         </li>-->
@@ -36,7 +41,13 @@
                 --bs-btn-disabled-border-color: #6c757d;
             }        
         </style>
-        <button type="button" class="btn btn-secondary">Login</button>
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" href="{% url 'logout' %}">Salir</a>
+            
+        {% else %}
+            <a type="button" class="btn btn-secondary" href="{% url 'login' %}">Iniciar sesión</a>
+        {% endif %}	
+        
     </form>
     
     

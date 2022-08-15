@@ -4,26 +4,10 @@ from .models                        import Evento, EventoUsuario
 from django.views.generic           import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.shortcuts               import redirect
 from django.http                    import Http404
+from .forms                         import EventoForm
+from django.urls                    import reverse_lazy
 
 # Create your views here.
-"""
-def index(request):
-
-    #Función vista para la página inicio del sitio.
-
-    # Genera contadores de algunos de los objetos principales
-    e = Evento.objects.all()
-    # Libros disponibles (status = 'a')
-    num_instances_available=Evento.objects.filter(gratuito__exact='SI').count()
-    num_eventoUsuario=EventoUsuario.objects.count()  # El 'all()' esta implícito por defecto.
-
-    # Renderiza la plantilla HTML index.html con los datos en la variable contexto
-    return render(
-        request,
-        'home/index.html',
-        context={'e':e,'num_instances_available':num_instances_available,'num_eventoUsuario':num_eventoUsuario},
-    )
-"""
 
 class listaEventos(ListView):
     model = Evento
@@ -34,6 +18,41 @@ class listaEventos(ListView):
     def get_queryset(self):
         queryset = Evento.objects.order_by('fecha')
         return queryset
+
+class modEvento(UpdateView):
+    model = Evento
+    form_class = EventoForm
+    context_object_name = 'mod_evento'
+    template_name = "eventos/modEvento.html"
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy("productos:admin_listar")
+
+class insEvento(CreateView):
+    model = Evento
+    form_class = EventoForm
+    context_object_name = 'insEvento'
+    template_name = "eventos/insEvento.html"
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy("listaEventos")
+
+#@superuser_required()
+def borrarEvento(request, eventoId):
+	e = Evento.objects.get(id=eventoId)
+	e.delete()
+	return redirect("listaEventos")
+
+"""
+class borrarEvento(DeleteView):
+    model = Evento
+    form_class = EventoForm
+    context_object_name = 'borrarEvento'
+    template_name = "eventos/insEvento.html"
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy("listaEventos")
+"""
 """
 class detalleEventos(DetailView):
     model = Evento
@@ -99,20 +118,3 @@ def buscarEvento(request):
     else:
         return render(request,'eventos', 
         {})
-"""
-def buscarEvento(request, cat, fch):
-    if cat == '' and fch == '':
-        return redirect('listaEventos')
-    else:
-        if cat == '':
-            lista_eventos = Evento.objects.filter(fecha__contains = fch)
-        elif fch == '':
-            lista_eventos = Evento.objects.filter(categoria__contains = cat)
-        else:
-            lista_eventos = Evento.objects.filter(categoria__contains = cat).filter(fecha__contains = fch)
-
-    return render(request,'eventos/listaEventos.html', 
-    {'cat':cat,
-    'fch':fch,
-    'lista_eventos':lista_eventos})
-"""

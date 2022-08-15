@@ -1,0 +1,17 @@
+{% extends "base/base_generic.html" %}
+
+{% block title %}<title>Agregar Evento</title>{% endblock %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <!--div class="row">
+        % include "includes/form_errors.html" %
+    </div-->
+            
+    {{form.as_p}}
+
+    <hr class="mb-4">
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+    <a class="btn btn-dark btn-lg btn-block" href="{% url 'listaEventos' %}">Cancelar</a>
+</form>
+
+{% endblock %}

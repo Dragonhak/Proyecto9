@@ -4,13 +4,14 @@
 
 {% block content %}
 <main>
-  <div class="px-4 py-5 my-5 text-center">
+
+  <div class="px-4 pt-4 mt-4 text-center bienvenidos">
     {% load static %}
-    <img class="d-block mx-auto mb-4" src="{% static 'img/logo.jpg' %}" alt="" width="400" height="500">
-    <h1 class="display-5 fw-bold">Bienvenidos</h1>
+    <img class="d-block mx-auto mb-4" src="{% static 'img/logoSINFONDO.png' %}" alt="" width="500" height="600">
+    <h1 class="display-5 fw-bold color-blue">Bienvenidos</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Somos Fundación Pueblo</p>
-      <p class="lead mb-4"></p>Una entidad que fue creada en el año 2012 y que tiene como objetivo llevar adelante
+      <p class="lead mb-4">Somos Fundación Pueblo<br>
+      Una entidad que fue creada en el año 2012 y que tiene como objetivo llevar adelante
       diferentes actividades para la comunidad de Barranqueras.</p>
     </div>
   </div>
@@ -20,57 +21,73 @@
   <div class=" col-xxl-12 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/mision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
-          height="500" loading="lazy">
+        <img src="{% static 'img/mision.jpg' %}" class="img-thumbnail d-block mx-lg-auto img-fluid"
+          alt="Bootstrap Themes" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Misión</h1>
-        <p class="lead">Generar espacios que permitan a los ciudadanos desarrollar sus capacidades de
-          investigación, reflexión, formulación, ejecución y control de proyectos educativos,
-          culturales, deportivos, ambientales, productivos, económicos, fiscales, laborales y
-          comunitarios para el desarrollo local, la inclusión social y la igualdad de género en
-          vinculación con las Tecnologías de la Información y la Comunicación.</p>
+         <!--tarjeta 1-->
+         <div class="col-lg-12 col-md-12 mb-4">
+          <div class="card-section border rounded p-3">
+            <div class="card-header-first rounded pb-5">
+                <h2 class="card-header-title text-white pt-3 text-center">Misión</h2>
+            </div>
+            <div class="card-body text-center">
+                <p class="card-text mt-3">Generar espacios que permitan a los ciudadanos desarrollar sus capacidades de
+                  investigación, reflexión, formulación, ejecución y control de proyectos educativos,
+                  culturales, deportivos, ambientales, productivos, económicos, fiscales, laborales y
+                  comunitarios para el desarrollo local, la inclusión social y la igualdad de género en
+                  vinculación con las Tecnologías de la Información y la Comunicación.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="b-example-divider"></div>
 
   <div class=" col-xxl-12 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/vision.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
-          height="500" loading="lazy">
+        <img src="{% static 'img/vision.jpg' %}" class="img-thumbnail d-block mx-lg-auto img-fluid"
+          alt="Bootstrap Themes" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Visión</h1>
-        <p class="lead">Lograr la eliminación de la pobreza, el analfabetismo, el desempleo y la contaminación ambiental
-          para que exista una verdadera igualdad social, política y
-          económica en las comunidades.</p>
+         <!--tarjeta 2-->
+         <div class="col-lg-12 col-md-12 mb-4">
+          <div class="card-section border rounded p-3">
+            <div class="card-header-first rounded pb-5">
+                <h2 class="card-header-title text-white pt-3 text-center">Visión</h2>
+            </div>
+            <div class="card-body text-center">
+                <p class="card-text mt-3">Lograr la eliminación de la pobreza, el analfabetismo, el desempleo y la contaminación ambiental
+                  para que exista una verdadera igualdad social, política y
+                  económica en las comunidades.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="b-example-divider"></div>
 
   <div class=" col-xxl-12 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{% static 'img/integrantes.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
-          width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Nuestros Representantes</h1>
         <p class="lead">◦ Presidente: Mariana Gómez</p>
         <p class="lead">◦ Tesorero: Emmanuel Ojeda</p>
         <p class="lead">◦ Secretaria: Ethel Gómez</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="b-example-divider"></div>
 
-  <div class=" col-xxl-12 px-4 pt-5">
+  <div class=" col-xxl-12 px-4 pt-5 container">
     <div class="row">
       <div class="col xxl-3">
         <div class="d-inline p-2">

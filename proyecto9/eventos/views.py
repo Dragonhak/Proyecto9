@@ -26,7 +26,7 @@ class modEvento(UpdateView):
     template_name = "eventos/modEvento.html"
 
     def get_success_url(self, **kwargs):
-        return reverse_lazy("productos:admin_listar")
+        return reverse_lazy("listaEventos")
 
 class insEvento(CreateView):
     model = Evento

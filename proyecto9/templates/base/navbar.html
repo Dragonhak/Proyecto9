@@ -1,59 +1,39 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<div class="container-fluid">
-    <a class="navbar-brand" href="#">Fundación Pueblo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="{% url 'home' %}">Inicio</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " href="{% url 'listaEventos' %}">Calendario de Eventos</a>
-        </li>
-        {% if user.is_superuser %}
-        <li class="nav-item"></li>
-			<a class="nav-link" href="http://127.0.0.1:8000/admin/">ADMINISTRACION</a>
-        </li>
-		{% endif %}	
-        <!--<li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-        </li>-->
-    </ul>
-    <form class="d-flex" role="search">
-        <style> 
-            .btn-secondary {
-                --bs-btn-color: #ffffff;
-                --bs-btn-bg: #212529;
-                --bs-btn-border-color: #6c757d;
-                --bs-btn-hover-color: #fff;
-                --bs-btn-hover-bg: #5c636a;
-                --bs-btn-hover-border-color: #565e64;
-                --bs-btn-focus-shadow-rgb: 130,138,145;
-                --bs-btn-active-color: #fff;
-                --bs-btn-active-bg: #565e64;
-                --bs-btn-active-border-color: #51585e;
-                --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
-                --bs-btn-disabled-color: #fff;
-                --bs-btn-disabled-bg: #6c757d;
-                --bs-btn-disabled-border-color: #6c757d;
-            }        
-        </style>
-        {% if user.is_authenticated %}
-            <a class="btn btn-secondary" href="{% url 'logout' %}">Salir</a>
-            
-        {% else %}
-            <a type="button" class="btn btn-secondary" href="{% url 'login' %}">Iniciar sesión</a>
-        {% endif %}	
-        
-    </form>
-    
-    
-
-    </div>
-</div>
-</nav>
-
-
+{% load static %}
+        <!-- Sidebar menu-->
+        <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+        <aside class="app-sidebar">
+            <div class="app-sidebar__user">
+                <img class="app-sidebar__user-avatar" src="{% static 'img/face.png' %}" alt="User Image" height="50px" width="50px"/>
+                <div>
+                    <p class="app-sidebar__user-name">{{ user.first_name }}</p>
+                    <p class="app-sidebar__user-designation">{{ user.last_name }}</p>
+                </div>
+            </div>
+            <ul class="app-menu">
+                <li>
+                    <a class="app-menu__item " href="{% url 'home' %}"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Inicio</span></a>
+                </li>
+                <li>
+                    <a class="app-menu__item" href="{% url 'listaEventos' %}"><i class="app-menu__icon fa fa-calendar"></i><span class="app-menu__label">Calendario de Eventos</span></a>
+                </li>
+                <!--li class="treeview">
+                    <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Events</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a class="treeview-item" href="% url 'calendarapp:running_events' %"><i class="icon fa fa-circle-o"></i> Running</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="{% url 'calendarapp:running_events' %"><i class="icon fa fa-circle-o"></i> Upcoming</a>
+                        </li>
+                        <li>
+                            <a class="treeview-item" href="% url 'calendarapp:all_events' %"><i class="icon fa fa-circle-o"></i> All</a>
+                        </li>
+                    </ul>
+                </li-->		
+                {% if user.is_superuser %}	
+                <li>
+                    <a class="app-menu__item" href="http://127.0.0.1:8000/admin/"><i class="app-menu__icon fa fa-lock"></i><span class="app-menu__label">ADMINISTRACION</span></a>
+                </li>
+                {% endif %}
+            </ul>
+        </aside>

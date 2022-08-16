@@ -32,7 +32,7 @@
                 </li-->		
                 {% if user.is_superuser %}	
                 <li>
-                    <a class="app-menu__item" href="http://127.0.0.1:8000/admin/"><i class="app-menu__icon fa fa-lock"></i><span class="app-menu__label">ADMINISTRACION</span></a>
+                    <a class="app-menu__item" href="{% url 'admin:index' %}"><i class="app-menu__icon fa fa-lock"></i><span class="app-menu__label">ADMINISTRACION</span></a>
                 </li>
                 {% endif %}
             </ul>

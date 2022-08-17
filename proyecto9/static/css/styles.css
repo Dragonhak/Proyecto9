@@ -70,6 +70,6 @@ body{
 
 .bienvenidos {
     background: linear-gradient(0deg, #e5e5e5, #65c944, #274f98); 
-    margin-left: -400px;
-    margin-right: -400px;
+    /*margin-left: -30px;
+    margin-right: -30px;*/
 }

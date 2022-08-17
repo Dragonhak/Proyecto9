@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+LOGIN_URL = reverse_lazy("login")
 
 # Application definition
 
@@ -57,7 +61,8 @@ ROOT_URLCONF = 'proyecto9.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #Indico la nueva ruta donde estan todos los templates de la app, si no se define busca en cada app la carpeta template
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,20 +86,21 @@ WSGI_APPLICATION = 'proyecto9.wsgi.application'
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+#Quito esta parte para que puedan poner cualquier password
+#AUTH_PASSWORD_VALIDATORS = [
+    #{
+   #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+   # },
+  #  {
+  #      'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+ #   },
+  #  {
+ #       'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+ #   },
+ #   {
+   #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+  #  },
+#]
 
 
 # Internationalization
@@ -112,7 +118,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(BASE_DIR), "static"),   
+)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -1,0 +1,75 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+body{
+    background: #f8f9fa; 
+}
+.principal{
+	margin-top:50px;
+	font-family: 'Roboto';
+}
+
+.color-blue {
+    color: #274F98
+}
+
+
+/*tarjeta 1*/
+.card-header-first{
+	margin-top:-60px;
+    height: 85px;
+	background: linear-gradient(-90deg, #65c944, #274f98); 
+	box-shadow:1px 5px 15px #a2a2a2;
+}
+
+/*tarjeta 2*/
+.card-header-second{
+	margin-top:-60px;
+    height: 85px;
+	background: linear-gradient(-90deg, #65c944, #274f98); 
+	box-shadow:1px 5px 15px #a2a2a2;
+}
+
+/*tarjeta 3*/
+.card-header-third{
+    margin-top:-60px;
+    height: 85px;
+	background: linear-gradient(-90deg, #65c944, #274f98); 
+	box-shadow:1px 5px 15px #a2a2a2;
+}
+
+.card-section-third span i{
+	padding:17px;
+	margin:0px 10px;
+	color:#fff;
+	height:50px;
+	width:50px;
+	box-shadow:1px 6px 24px #d2d2d2;
+	background: linear-gradient(-90deg, #11998e, #38ef7d); 
+}
+
+.card-header-third span i:hover,.card-section-third span i:hover{
+	box-shadow:1px 1px 15px #000;
+}
+
+/*efecto shadows para todas las tarjetas*/
+.card-section{
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+/*Para el efecto sombra al pasar por encima el mouse*/
+.card-section:hover{
+	box-shadow:1px 1px 20px #d2d2d2;
+}
+
+.bienvenidos {
+    background: linear-gradient(0deg, #e5e5e5, #65c944, #274f98); 
+    /*margin-left: -30px;
+    margin-right: -30px;*/
+}

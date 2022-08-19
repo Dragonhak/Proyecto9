@@ -20,6 +20,8 @@ from django.conf.urls.static    import static
 from django.views.generic       import RedirectView
 from .                          import views
 from django.contrib.auth        import views as auth_views
+from django.conf.urls           import handler404, handler500 
+from proyecto9.views            import Error404View, Error500View
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,3 +33,8 @@ urlpatterns = [
     path('logout/', auth_views.logout_then_login, name="logout"),
     path('IniciarSesion/', auth_views.LoginView.as_view(template_name="login.html"), name="login"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = Error404View.as_view()
+
+handler500 = Error500View.as_error_view()
+

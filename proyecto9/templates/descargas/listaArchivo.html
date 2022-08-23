@@ -26,10 +26,8 @@
             <td>{{archivo.extension}}</td>
             <td>{{archivo.fecha}}</td>
             <td>
+               <a href="{% url 'borrarArchivo' archivo.pk %}" class="btn btn-danger float-right">Eliminar</a>
                <a href="{{ archivo.arch.url }}" download  class="btn btn-dark float-right">Download</a>
-               <!--a href="% url 'productos:admin_editar' producto.id %">Editar</a>
-               <a href="% url 'productos:admin_borrar' producto.id %">Borrar</a>
-               <a href="% url 'productos:admin_detalle' producto.id %">Descargar</a-->
             </td>
          </tr>
       {% endfor %}

@@ -1,0 +1,43 @@
+
+{% extends "base/base_generic.html" %}
+
+{% block title %}<title>Descargar Recursos</title>{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.is_superuser or user.is_staff %}
+    <a class="btn btn-outline-dark" href="{% url 'agregarArchivo' %}">Agregar Archivo</a>
+    {% endif %} 
+{% endif %}   
+<table class="table">
+   <thead class="thead-dark">
+     <tr>
+       <th scope="col">Nombre</th>
+       <th scope="col">Descripción</th>
+       <th scope="col">Tipo</th>
+       <th scope="col">Fecha</th>
+       <th></th>
+     </tr>
+   </thead>
+   <tbody>
+      {% for archivo in object_list %}
+         <tr>
+            <th scope="row">{{archivo.nombre}}</th>
+            <td>{{archivo.desc}}</td>
+            <td>{{archivo.extension}}</td>
+            <td>{{archivo.fecha}}</td>
+            <td>
+               <a href="{{ archivo.arch.url }}" download  class="btn btn-dark float-right">Download</a>
+               <!--a href="% url 'productos:admin_editar' producto.id %">Editar</a>
+               <a href="% url 'productos:admin_borrar' producto.id %">Borrar</a>
+               <a href="% url 'productos:admin_detalle' producto.id %">Descargar</a-->
+            </td>
+         </tr>
+      {% endfor %}
+   </tbody>
+</table>
+
+<div class="row">
+   {% include "eventos/includes/paginador.html" %}
+</div>
+
+{% endblock %}

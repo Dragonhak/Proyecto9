@@ -1,0 +1,72 @@
+{% extends "base/base_generic.html" %}
+
+{% block title %}<title>Calendario de Eventos</title>{% endblock %}
+{% block content %}
+<style>
+   .btn-ama {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: #024d92;
+        --bs-btn-border-color: #024d92;
+        --bs-btn-hover-color: #fff;
+        --bs-btn-hover-bg: #8f8f2d;
+        --bs-btn-hover-border-color: #8f8f2d;
+        --bs-btn-focus-shadow-rgb: 130,138,145;
+        --bs-btn-active-color: #fff;
+        --bs-btn-active-bg: #565e64;
+        --bs-btn-active-border-color: #51585e;
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        --bs-btn-disabled-color: #fff;
+        --bs-btn-disabled-bg: #6c757d;
+        --bs-btn-disabled-border-color: #6c757d;
+    }
+</style>
+
+<div class="row mb-2" style="float:left;">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method = POST action = "{% url 'buscarEvento' %}" role="search">
+        {% csrf_token %}
+        <label for="featured">Categoría: </label>
+        <select name="cat">
+            <option value=""selected>Todos</option>
+            <option value="Educativo">Educativo</option>
+            <option value="Cultural" >Cultural</option>
+            <option value="Deportivo">Deportivo</option>
+            <option value="Ambiental">Ambiental</option>
+            <option value="Productivo">Productivo</option>
+            <option value="Economico">Economico</option>
+            <option value="Comunitario">Comunitario</option>
+        </select>
+        <label for="featured">Fecha: </label>
+        <input type="search"  placeholder="Ejemplo: 2022-08-10" aria-label="Search" name = "fch">
+        <input type="submit" value="Filtrar"/>
+    </form>
+</div>
+<div class="row mb-2" style="float:left;">
+{% if user.is_authenticated %}
+    {% if user.is_superuser or user.is_staff %}
+    <a class="btn btn-outline-dark" href="{% url 'insEvento' %}">Agregar Evento</a>
+    {% endif %} 
+{% endif %}   
+</div>
+<br>
+<br>
+<div class="row">	
+    <div class="blog-main">
+        <div class="row mb-2">
+            {% for e in lista_eventos %}
+                <div class="col-md-3">
+                    {% include "eventos/includes/bloque_eventos.html" %}
+                </div>
+            {% empty %}
+                <li>No existen Eventos</li>	
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <div class="row">            
+            {% include "eventos/includes/paginador.html" %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

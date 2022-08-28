@@ -1,7 +1,6 @@
-from turtle import Turtle
 from django.shortcuts               import render
 from .models                        import Evento, EventoUsuario
-from django.views.generic           import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic           import ListView, CreateView, UpdateView
 from django.shortcuts               import redirect
 from django.http                    import Http404
 from .forms                         import EventoForm
@@ -43,31 +42,6 @@ def borrarEvento(request, eventoId):
 	e.delete()
 	return redirect("listaEventos")
 
-"""
-class borrarEvento(DeleteView):
-    model = Evento
-    form_class = EventoForm
-    context_object_name = 'borrarEvento'
-    template_name = "eventos/insEvento.html"
-
-    def get_success_url(self, **kwargs):
-        return reverse_lazy("listaEventos")
-"""
-"""
-class detalleEventos(DetailView):
-    model = Evento
-    context_object_name = 'evento'
-    template_name = "eventos/detalleEventos.html"
-    
-    #Redefino para pasar variables de contexto adicionales
-    def get_context_data(self, **kwargs):
-        context = super(detalleEventos, self).get_context_data(**kwargs)
-        #Nuevo dato que quiero pasar..
-        context ['isParticipante'] = self.titulo
-        return context
-    
-    """
-
 #Por funcion
 def detalleEventos(request,eventoId):
     
@@ -79,8 +53,6 @@ def detalleEventos(request,eventoId):
         raise Http404("No existe Evento")
     except EventoUsuario.DoesNotExist:
         isExisteEU = False
-
-    #evento=get_object_or_404(Evento, pk=pk)
 
     return render(
         request,

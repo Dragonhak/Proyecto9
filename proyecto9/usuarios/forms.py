@@ -1,8 +1,7 @@
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.core.exceptions    import ValidationError
-
-from usuarios.models      import Usuario
+from django 						import forms
+from django.contrib.auth.forms 		import UserCreationForm
+from django.core.exceptions   		import ValidationError
+from usuarios.models      			import Usuario
 
 class UsuarioForm(UserCreationForm):
 	username = forms.CharField(label="Nombre de usuario", required=True, widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Ingrese nombre de usuario"}))

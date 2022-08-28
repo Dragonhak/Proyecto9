@@ -1,11 +1,9 @@
 from django.db            import models  
-from django.db.models     import constraints, UniqueConstraint
-from psycopg2             import Timestamp
+from django.db.models     import constraints
 from usuarios.models      import Usuario
 from django.utils         import timezone
 from django.urls          import reverse
-
-from django.contrib import admin
+from django.contrib       import admin
 
 class Evento(models.Model):
 

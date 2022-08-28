@@ -1,8 +1,6 @@
-from django.contrib import admin
+from django.contrib         import admin
+from .models                import Usuario
 
-from .models import Usuario
-
-#admin.site.register(Usuario)
 
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name', 'dni', 'username', 'email')

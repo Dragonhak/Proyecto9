@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
-
-from .forms import UsuarioForm
+from django.shortcuts 		import render, redirect
+from .forms 				import UsuarioForm
 
 def registrar_usuario(request):
 	template_name = "registrar.html"

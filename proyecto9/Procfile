@@ -1,1 +1,1 @@
-web: gunicorn fundacionpueblo.wsgi --log-file -
+web: gunicorn fpg9.wsgi --log-file -

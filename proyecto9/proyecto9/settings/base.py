@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
-from pathlib import Path
-from django.urls import reverse_lazy
+from pathlib        import Path
+from django.urls    import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,19 +120,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "static"),   
 )
-#STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-#STATIC_TMP= os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_TMP= os.path.join(BASE_DIR, "static")
 
-#os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_TMP, exist_ok=True)
 
 os.makedirs(STATIC_ROOT, exist_ok=True)
  
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
